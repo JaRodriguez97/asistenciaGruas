@@ -1,0 +1,22 @@
+<ngx-spinner
+  bdOpacity="0.9"
+  bdColor="#17a2b8"
+  size="medium"
+  color="#fff"
+  type="ball-circus"
+  [fullScreen]="true"
+>
+  <p>Cargando...</p>
+</ngx-spinner>
+<header>
+  <a href="portafolio" class="logo">Portafolio</a>
+  <div class="toggle" onclick="toogleMenu()"></div>
+  <ul class="menu">
+    <li><a href="">Inicio</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#contacto">Contáctanos</a></li>
+  </ul>
+</header>
+<router-outlet></router-outlet>
