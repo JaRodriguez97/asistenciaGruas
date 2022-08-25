@@ -7,3 +7,68 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+.adjust {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 40px;
+  padding-top: 80px;
+  background: #fff;
+  color: #000;
+  display: inline-block;
+}
+
+/* responsive */
+
+@media (max-width: 991px) {
+  .adjust {
+    padding: 0 20px;
+    padding-top: 80px;
+  }
+
+  .nosotros .content {
+    flex-direction: column;
+  }
+
+  .nosotros .content .textBox {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  .nosotros .content .imgBx {
+    margin-left: 0 !important;
+    margin-top: 20px;
+    max-width: 100%;
+  }
+
+  .services .content {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .services .content .serviceBox img {
+    max-height: 100px !important;
+  }
+
+  .services .content .serviceBox img.small {
+    max-height: 150px !important;
+  }
+
+  .project .content {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .services .content {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .project .content {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .testimonials .content {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
