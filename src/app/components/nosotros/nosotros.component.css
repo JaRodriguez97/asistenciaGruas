@@ -1,0 +1,56 @@
+.adjust {
+  position: relative;
+  min-height: 100vh;
+  padding: 0 40px;
+  padding-top: 80px;
+  background: #fff;
+  color: #000;
+  display: inline-block;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+}
+
+.title h2 {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.2em;
+  margin: 30px 0;
+}
+
+.title h2::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: -10px;
+  width: 50px;
+  height: 1px;
+  background: #000;
+}
+
+.nosotros .content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.nosotros .content .textBox {
+  width: 40%;
+  min-width: 40%;
+}
+
+.nosotros .content .imgBx {
+  margin-left: 40px;
+}
+
+.nosotros .content .imgBx img {
+  max-width: 100%;
+}
