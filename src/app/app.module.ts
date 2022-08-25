@@ -8,9 +8,10 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { TestimoniosComponent } from './components/testimonios/testimonios.component';
 import { ContactanosComponent } from './components/contactanos/contactanos.component';
+import { TrabajosComponent } from './components/trabajos/trabajos.component';
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent, NosotrosComponent, ServiciosComponent, TestimoniosComponent, ContactanosComponent],
+  declarations: [AppComponent, IndexComponent, NosotrosComponent, ServiciosComponent, TestimoniosComponent, ContactanosComponent, TrabajosComponent],
   imports: [NgxSpinnerModule, BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
