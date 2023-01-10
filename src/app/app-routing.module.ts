@@ -8,20 +8,13 @@ import { TestimoniosComponent } from "./components/testimonios/testimonios.compo
 
 const routes: Routes = [];
 
-routes.push(
-  { path: "", redirectTo: "index", pathMatch: "full" },
-  { path: "portafolio", redirectTo: "index", pathMatch: "full" },
-  {
-    path: "index",
-    component: IndexComponent, // canActivateChild: [AuthGuard],
-  },
-  { path: "nosotros", component: NosotrosComponent },
-  { path: "servicios", component: ServiciosComponent },
-  { path: "testimonios", component: TestimoniosComponent },
-  { path: "contactanos", component: ContactanosComponent }
-);
+routes.push({ path: "", redirectTo: "index", pathMatch: "full" });
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      initialNavigation: "enabledBlocking",
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
