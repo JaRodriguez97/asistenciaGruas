@@ -8,10 +8,10 @@
 >
   <p>Cargando...</p>
 </ngx-spinner>
-<header>
+<header #header>
   <a href="portafolio" class="logo">Portafolio</a>
-  <div class="toggle" onclick="toogleMenu()"></div>
-  <ul class="menu">
+  <div #menuToggle class="toggle" (click)="toogleMenu()"></div>
+  <ul #menu class="menu">
     <li><a [href]="'/'">Inicio</a></li>
     <li><a [href]="'#nosotros'">Nosotros</a></li>
     <li><a [href]="'#servicios'">Servicios</a></li>
@@ -20,7 +20,6 @@
     <li><a [href]="'#contacto'">Contáctanos</a></li>
   </ul>
 </header>
-<!-- <router-outlet></router-outlet> -->
 <app-index></app-index>
 <app-nosotros id="nosotros"></app-nosotros>
 <app-servicios id="servicios"></app-servicios>

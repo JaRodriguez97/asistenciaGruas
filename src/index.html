@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <title>{{ title }}</title> -->
+    <meta name="theme-color" content="#2196f3" />
+    <meta
+      name="description"
+      content="Asistencia Nacional de Grúas,
+      con disposición de niñeras y sus respectivas gruas"
+    />
     <title>Asistencia Nacional de Grúas</title>
-    <base href="/" />
 
     <link rel="icon" type="image/x-icon" href="./assets/images/logoGruas.png" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
@@ -15,10 +20,6 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
-    <!-- <link
-      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css"
-      rel="stylesheet"
-    /> -->
   </head>
 
   <body
@@ -27,17 +28,4 @@
   >
     <app-root></app-root>
   </body>
-  <script>
-    window.addEventListener("scroll", function () {
-      var header = document.querySelector("header");
-      header.classList.toggle("sticky", window.scrollY > 0);
-    });
-
-    function toogleMenu() {
-      var menuToggle = document.querySelector(".toggle");
-      var menu = document.querySelector(".menu");
-      menuToggle.classList.toggle("active");
-      menu.classList.toggle("active");
-    }
-  </script>
 </html>

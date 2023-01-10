@@ -47,6 +47,7 @@ header ul li a {
   margin: 0 15px;
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
 }
 
 header ul li a:hover {
@@ -60,10 +61,6 @@ header.sticky ul li a {
 /* responsive */
 
 @media (max-width: 991px) {
-  /* corregir cuando hace scroll al menú en responsive */
-  /* header.sticky > .menu.active {
-    transition: 0ms;
-  } */
 
   header,
   header.sticky {
