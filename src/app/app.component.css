@@ -9,17 +9,16 @@ header {
   justify-content: space-between;
   align-items: center;
   transition: 500ms;
-  filter: invert();
 }
 
 header.sticky {
-  background: #000;
+  background: #fff;
   padding: 20px 100px;
-  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 header .logo {
-  color: #fff;
+  color: #000;
   font-size: 24px;
   text-transform: uppercase;
   text-decoration: none;
@@ -27,8 +26,16 @@ header .logo {
   letter-spacing: 2px;
 }
 
+header .logo:hover {
+  color: var(--colorPrincipal);
+}
+
 header.sticky .logo {
-  color: #fff;
+  color: var(--colorPrincipal);
+}
+
+header.sticky .logo:hover {
+  color: #000;
 }
 
 header ul {
@@ -45,23 +52,28 @@ header ul li a {
   position: relative;
   display: inline-block;
   margin: 0 15px;
-  color: #fff;
+  color: #000;
   text-decoration: none;
   cursor: pointer;
 }
 
 header ul li a:hover {
-  border-bottom: 1px solid #fff;
+  color: var(--colorPrincipal);
+  border-bottom: 1px solid var(--colorPrincipal);
 }
 
 header.sticky ul li a {
-  color: #ddd;
+  color: var(--colorPrincipal);
+}
+
+header.sticky ul li a:hover {
+  color: #000;
+  border-bottom: 1px solid #000;
 }
 
 /* responsive */
 
 @media (max-width: 991px) {
-
   header,
   header.sticky {
     padding: 20px 40px;

@@ -24,7 +24,7 @@
         <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
         <div class="text">
           <h3>Teléfono</h3>
-          <p>+(57) 315 215 00 74</p>
+          <p>+(57) 318 505 11 07</p>
         </div>
       </div>
       <div class="box">
@@ -38,7 +38,11 @@
       </div>
     </div>
     <div class="contactForm">
-      <form>
+      <form
+        name="contactForm"
+        [formGroup]="contactForm"
+        (ngSubmit)="sendContactMail()"
+      >
         <h2>Enviar Mensaje</h2>
         <div class="inputBox">
           <input type="text" name="" required="required" />

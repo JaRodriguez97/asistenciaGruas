@@ -1,35 +1,9 @@
-.title {
-  width: 100%;
-  text-align: center;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
-}
-
-.title h2 {
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 1.2em;
-  margin: 50px 0;
-}
-
-.title h2::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  bottom: -10px;
-  width: 50px;
-  height: 1px;
-  background: #000;
-}
-
 .nosotros .content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 100px;
+  gap: 40px;
+  align-items: center;
 }
 
 .nosotros .content .textBox {
@@ -38,9 +12,10 @@
 }
 
 .nosotros .content .imgBx {
-  margin-left: 40px;
+  max-width: 400px;
 }
 
 .nosotros .content .imgBx img {
   max-width: 100%;
+  border-radius: 50%;
 }

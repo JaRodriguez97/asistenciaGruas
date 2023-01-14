@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -26,6 +27,8 @@ import { TrabajosComponent } from "./components/trabajos/trabajos.component";
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,
     FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
