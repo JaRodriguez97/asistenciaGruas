@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { NgxSpinnerModule } from "ngx-spinner";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ContactanosComponent } from "./components/contactanos/contactanos.component";
@@ -23,7 +22,6 @@ import { TrabajosComponent } from "./components/trabajos/trabajos.component";
     TrabajosComponent,
   ],
   imports: [
-    NgxSpinnerModule,
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,
     FontAwesomeModule,
