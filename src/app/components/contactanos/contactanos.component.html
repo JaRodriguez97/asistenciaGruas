@@ -38,21 +38,27 @@
       </div>
     </div>
     <div class="contactForm">
-      <form name="contactForm" method="POST" data-netlify="true">
+      <form
+        name="contactForm"
+        method="POST"
+        data-netlify-recaptcha="true"
+        data-netlify="true"
+      >
         <!-- <input type="hidden" name="form-name" value="contact" /> -->
         <h2>Enviar Mensaje</h2>
         <div class="inputBox">
-          <input name="nombreCompleto" type="text" required />
+          <input name="nombreCompleto" type="text" />
           <span>Nombre Completo</span>
         </div>
         <div class="inputBox">
-          <input name="email" type="text" required />
+          <input name="email" type="text" />
           <span>Email</span>
         </div>
         <div class="inputBox">
-          <textarea name="mensaje" required></textarea>
+          <textarea name="mensaje"></textarea>
           <span>Escribir mensaje</span>
         </div>
+        <div data-netlify-recaptcha="true"></div>
         <div class="inputBox">
           <button type="submit">Enviar</button>
         </div>
