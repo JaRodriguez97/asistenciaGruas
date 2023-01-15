@@ -38,33 +38,19 @@
       </div>
     </div>
     <div class="contactForm">
-      <form
-        data-netlify="true"
-        name="contactForm"
-        [formGroup]="contactForm"
-        (ngSubmit)="sendContactMail(contactForm)"
-      >
-        <input type="hidden" name="form-name" value="contact" />
+      <form name="contactForm" method="POST" data-netlify="true">
+        <!-- <input type="hidden" name="form-name" value="contact" /> -->
         <h2>Enviar Mensaje</h2>
         <div class="inputBox">
-          <input
-            name="nombreCompleto"
-            formControlName="nombreCompleto"
-            type="text"
-            required
-          />
+          <input name="nombreCompleto" type="text" required />
           <span>Nombre Completo</span>
         </div>
         <div class="inputBox">
-          <input name="email" formControlName="email" type="text" required />
+          <input name="email" type="text" required />
           <span>Email</span>
         </div>
         <div class="inputBox">
-          <textarea
-            name="mensaje"
-            formControlName="mensaje"
-            required
-          ></textarea>
+          <textarea name="mensaje" required></textarea>
           <span>Escribir mensaje</span>
         </div>
         <div class="inputBox">

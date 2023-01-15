@@ -13,34 +13,35 @@ export class ContactanosComponent implements OnInit {
   constructor(private readonly formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.contactForm = this.initForm();
+    // this.contactForm = this.initForm();
   }
 
-  async sendContactMail(contactForm: FormGroup) {
-    if (contactForm.invalid) {
-      Swal.fire({
-        icon: "warning",
-        html: "<span>Por favor diligencie los campos obligatorios para poder enviar el mensaje</span>",
-        scrollbarPadding: false,
-      });
-    } else {
-      console.log(contactForm.value, "sqonjxazlstinhes");
+  // async sendContactMail(contactForm: FormGroup) {
+  //   if (contactForm.invalid) {
+  //     Swal.fire({
+  //       icon: "warning",
+  //       html: "<span>Por favor diligencie los campos obligatorios para poder enviar el mensaje</span>",
+  //       scrollbarPadding: false,
+  //     });
+  //   }
+  //   // else {
+  //   //   console.log(contactForm.value, "sqonjxazlstinhes");
 
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(contactForm.value).toString(),
-      })
-        .then((a) => console.log("Form successfully submitted", a))
-        .catch((error) => console.error(error));
-    }
-  }
+  //   //   fetch("/", {
+  //   //     method: "POST",
+  //   //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //   //     body: new URLSearchParams(contactForm.value).toString(),
+  //   //   })
+  //   //     .then((a) => console.log("Form successfully submitted", a))
+  //   //     .catch((error) => console.error(error));
+  //   // }
+  // }
 
-  initForm() {
-    return this.formBuilder.group({
-      nombreCompleto: ["", [Validators.required, Validators.minLength(6)]],
-      email: ["", [Validators.required, Validators.minLength(5)]],
-      mensaje: ["", [Validators.required, Validators.minLength(10)]],
-    });
-  }
+  // initForm() {
+  //   return this.formBuilder.group({
+  //     nombreCompleto: ["", [Validators.required, Validators.minLength(6)]],
+  //     email: ["", [Validators.required, Validators.minLength(5)]],
+  //     mensaje: ["", [Validators.required, Validators.minLength(10)]],
+  //   });
+  // }
 }
