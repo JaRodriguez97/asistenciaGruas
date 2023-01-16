@@ -12,15 +12,15 @@
   <a href="portafolio" class="logo">Portafolio</a>
   <div #menuToggle class="toggle" (click)="toogleMenu()"></div>
   <ul #menu class="menu">
-    <li><a [href]="'/'">Inicio</a></li>
-    <li><a [href]="'#nosotros'">Nosotros</a></li>
-    <li><a [href]="'#servicios'">Servicios</a></li>
-    <li><a [href]="'#trabajos'">Trabajos</a></li>
-    <li><a [href]="'#testimonios'">Testimonios</a></li>
-    <li><a [href]="'#contacto'">Contáctanos</a></li>
+    <li><a [href]="'#inicio'" (click)="toogleMenu()">Inicio</a></li>
+    <li><a [href]="'#nosotros'" (click)="toogleMenu()">Nosotros</a></li>
+    <li><a [href]="'#servicios'" (click)="toogleMenu()">Servicios</a></li>
+    <li><a [href]="'#trabajos'" (click)="toogleMenu()">Trabajos</a></li>
+    <li><a [href]="'#testimonios'" (click)="toogleMenu()">Reseñas</a></li>
+    <li><a [href]="'#contacto'" (click)="toogleMenu()">Contáctanos</a></li>
   </ul>
 </header>
-<app-index></app-index>
+<app-index id="inicio"></app-index>
 <app-nosotros id="nosotros"></app-nosotros>
 <app-servicios id="servicios"></app-servicios>
 <app-trabajos id="trabajos"></app-trabajos>

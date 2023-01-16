@@ -34,13 +34,4 @@ export class AppComponent implements OnInit {
     this.menuToggle?.nativeElement?.classList.toggle("active");
     this.menu?.nativeElement?.classList.toggle("active");
   }
-
-  // getSection(url: string) {
-  //   if (this.menuToggle)
-  //     this.render?.removeClass(this.menuToggle?.nativeElement!, "active");
-  //   if (this.menuToggle)
-  //     this.render?.removeClass(this.menu?.nativeElement!, "active");
-
-  //   return url;
-  // }
 }
