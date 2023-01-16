@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   backend: "http://localhost:3000/api/",
+  // backend: "https://servergruas.up.railway.app/",
 };
 
 /*

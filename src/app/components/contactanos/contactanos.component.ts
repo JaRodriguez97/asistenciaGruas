@@ -27,8 +27,6 @@ export class ContactanosComponent implements OnInit {
         scrollbarPadding: false,
       });
     } else {
-      console.log(contactForm.value, "sqonjxazlstinhes");
-
       this.contactService.sendMesage(contactForm.value).subscribe(
         (res) => console.log(res),
         (err) => console.error(err)
