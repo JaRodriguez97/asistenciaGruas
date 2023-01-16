@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  user: "cristi542012@gmail.com",
-  pass: "sqonjxazlstinhes",
+  backend: "http://localhost:3000/api/",
 };
 
 /*
