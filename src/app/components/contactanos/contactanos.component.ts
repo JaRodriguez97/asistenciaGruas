@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import Swal from "sweetalert2";
 import { ContactService } from "@service/Contact/contact.service";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-contactanos",
   templateUrl: "./contactanos.component.html",
@@ -12,6 +13,7 @@ export class ContactanosComponent implements OnInit {
 
   constructor(
     private contactService: ContactService,
+    private router: Router,
     private readonly formBuilder: FormBuilder
   ) {}
 
@@ -28,8 +30,40 @@ export class ContactanosComponent implements OnInit {
       });
     } else {
       this.contactService.sendMesage(contactForm.value).subscribe(
-        (res) => console.log(res),
-        (err) => console.error(err)
+        (res) => {
+          console.log(res);
+          Swal.fire({
+            icon: "success",
+            html: "<span>Su mensaje ha sido enviado satisfactoriamente, prontamente uno de nuestros operadores le contactará</span>",
+            // scrollbarPadding: false,
+          });
+        },
+        (err) => {
+          console.error(err);
+
+          Swal.fire({
+            icon: "error",
+            html: "<span>Ha ocurrido un error al enviar el correo</span>",
+            // scrollbarPadding: false,
+            confirmButtonText: "Intentar por WhatsApp",
+            confirmButtonColor: "green",
+            showDenyButton: true,
+            denyButtonText: "Usar app email",
+            denyButtonColor: "black",
+          }).then((response) => {
+            if (response.isConfirmed) {
+              console.log(
+                "🚀 ~ file: contactanos.component.ts:55 ~ ContactanosComponent ~ sendContactMail ~ response.isConfirmed",
+                response.isConfirmed
+              );
+              this.router.navigateByUrl("https://wa.me/573185051107");
+            }
+            if (response.isDenied)
+              this.router.navigate([
+                `http://mailto:centralnacionaldegruasynineras@gmail.com`,
+              ]);
+          });
+        }
       );
     }
   }

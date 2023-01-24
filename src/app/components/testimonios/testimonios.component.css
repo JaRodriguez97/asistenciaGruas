@@ -14,8 +14,10 @@
 
 .testimonials .content .testimonialsBox .imgBx {
   position: relative;
-  width: 80px;
-  height: 80px;
+  /* width: 80px;
+  height: 80px; */
+  width: 100%;
+  height: 300px;
   margin-bottom: 10px;
 }
 
