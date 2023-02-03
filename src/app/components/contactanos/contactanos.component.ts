@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import Swal from "sweetalert2";
-import { ContactService } from "@service/Contact/contact.service";
 import { Router } from "@angular/router";
+import { ContactService } from "@service/Contact/contact.service";
+import Swal from "sweetalert2";
 @Component({
   selector: "app-contactanos",
   templateUrl: "./contactanos.component.html",

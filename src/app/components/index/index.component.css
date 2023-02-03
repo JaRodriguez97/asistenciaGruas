@@ -1,10 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
 section {
   padding: 100px 30px;
 }
@@ -18,7 +11,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 1s;
+  background: var(--backgroundColorPrincipal);
 }
 
 .banner.active {
@@ -32,18 +25,6 @@ section {
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
-
-.btn {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  text-decoration: none;
-  background: var(--colorPrincipal);
-  color: #fff;
-  font-weight: 500;
-  border-radius: 4px;
-  letter-spacing: 1px;
 }
 
 .banner .imgBx {
@@ -61,7 +42,7 @@ section {
 .banner .content h2 {
   font-weight: 500;
   letter-spacing: 1px;
-  color: #777;
+  color: var(--letrasTitulosColor);
   line-height: 2.5em;
 }
 
@@ -72,7 +53,7 @@ section {
 }
 
 .banner .content p {
-  color: #777;
+  color: var(--letrasParrafosColor);
   font-size: 1em;
   margin-bottom: 20px;
 }
@@ -105,13 +86,17 @@ footer {
 }
 
 .sci li a fa-icon {
-  color: black;
+  color: var(--letrasTitulosColor);
   font-size: 1.8rem;
+}
+
+.sci li a fa-icon:hover {
+  color: var(--colorPrincipal);
 }
 
 .copyrightText {
   font-weight: 500;
-  color: #777;
+  color: var(--letrasPocoColor);
   letter-spacing: 1px;
 }
 

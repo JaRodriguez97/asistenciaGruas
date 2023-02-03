@@ -15,17 +15,20 @@
         </div>
         <div class="text">
           <h3>Dirección</h3>
-          <p>
+          <address>
             Carrera 7L bis # 65a - 15
-            <br /><strong>Las Ceibas</strong> <br />760011
-          </p>
+            <br />
+            <strong>Las Ceibas</strong>
+            <br />
+            760011
+          </address>
         </div>
       </div>
       <div class="box">
         <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
         <div class="text">
           <h3>Teléfono</h3>
-          <p>+(57) 318 505 11 07</p>
+          <address>+(57) 318 505 11 07</address>
         </div>
       </div>
       <div class="box">
@@ -34,18 +37,16 @@
         </div>
         <div class="text">
           <h3>Email</h3>
-          <strong>centralnacionaldegruasynineras@gmail.com</strong>
+          <address>centralnacionaldegruasynineras@gmail.com</address>
         </div>
       </div>
     </div>
     <div class="contactForm">
       <form
-        data-netlify="true"
         name="contactForm"
         [formGroup]="contactForm"
         (ngSubmit)="sendContactMail(contactForm)"
       >
-        <input type="hidden" name="form-name" value="contact" />
         <h2>Enviar Mensaje</h2>
         <div class="inputBox">
           <input
@@ -69,7 +70,7 @@
           <span>Escribir mensaje</span>
         </div>
         <div class="inputBox">
-          <button type="submit">Enviar</button>
+          <button type="submit" class="btn">Enviar</button>
         </div>
       </form>
     </div>

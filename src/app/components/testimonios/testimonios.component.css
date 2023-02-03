@@ -6,9 +6,9 @@
 }
 
 .testimonials .content .testimonialsBox {
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: var(--backgroundColorPrincipal);
+  border: var(--border);
+  box-shadow: var(--boxShadow);
   padding: 20px;
 }
 
@@ -29,7 +29,7 @@
   height: 100%;
   object-fit: contain;
 }
-
+/* 
 .testimonials .content .testimonialsBox p {
   font-style: italic;
 }
@@ -40,7 +40,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 1em;
-  color: #000;
+  color: var(--letrasTitulosColor);
   line-height: 1.2em;
   font-weight: 600;
   border-right: 4px solid #000;
@@ -53,4 +53,4 @@
   letter-spacing: 1px;
   font-weight: 300;
   font-size: 0.7em;
-}
+} */

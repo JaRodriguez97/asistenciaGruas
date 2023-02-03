@@ -19,12 +19,11 @@
 .contact .content h2 {
   font-size: 36px;
   font-weight: 500;
-  color: #fff;
+  color: var(--letrasTitulosColor);
 }
 
 .contact .content p {
   font-weight: 300;
-  color: #fff;
 }
 
 .container {
@@ -50,21 +49,21 @@
 .container .contactInfo .box .icon {
   min-width: 60px;
   height: 60px;
-  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   font-size: 22px;
+  background: var(--backgroundColorSecundario);
+  /* filter: invert(1); */
 }
 
 .container .contactInfo .box .text {
   display: flex;
   margin-left: 20px;
-  font-size: 16px;
   font-weight: 300;
-  color: #fff;
   flex-direction: column;
+  font-size: 16px;
 }
 
 .container .contactInfo .box .text h3 {
@@ -72,15 +71,23 @@
   color: var(--colorPrincipal);
 }
 
+.container .contactInfo .box .text address {
+  color: var(--letrasParrafosColor);
+}
+
+.container .contactInfo .box .text address:nth-child(3) {
+  font-size: 1vw;
+}
+
 .contactForm {
   width: 40%;
   padding: 40px;
-  background: #fff;
+  background: var(--backgroundColorSecundario);
 }
 
 .contactForm h2 {
   font-size: 30px;
-  color: #333;
+  color: var(--letrasSinContrasteColor);
   font-weight: 500;
 }
 
@@ -110,7 +117,7 @@
   margin: 10px 0;
   pointer-events: none;
   transition: 500ms;
-  color: #666;
+  color: var(--letrasPocoColor);
 }
 
 .contactForm .inputBox input:focus ~ span,
@@ -121,16 +128,15 @@
   font-size: 12px;
   transform: translateY(-20px);
 }
-
+/* 
 .contactForm .inputBox button {
   width: 100px;
   background: var(--colorPrincipal);
-  color: #fff;
-  border: none;
-  cursor: pointer;
+  color: var(--letrasSinContrasteColor);
+
   padding: 10px;
   font-size: 18px;
-}
+} */
 
 /* responsive */
 
@@ -151,5 +157,21 @@
   .container .contactInfo,
   .contactForm {
     width: 100%;
+  }
+}
+
+@media (max-width: 570px) {
+  .contact .content {
+    margin-left: 0;
+  }
+
+  .container .contactInfo .box .text address {
+    font-size: 2.8vw;
+  }
+}
+
+@media (max-width: 570px) {
+  .container .contactInfo .box .text address {
+    font-size: 2.4vw;
   }
 }
