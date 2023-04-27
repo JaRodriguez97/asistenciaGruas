@@ -71,6 +71,39 @@ header.sticky ul li a:hover {
   border-bottom: 1px solid var(--letrasTitulosColor);
 }
 
+.boxBtn {
+  position: fixed;
+  top: 15vh;
+  right: 0;
+  height: 100px;
+  z-index: 1;
+  align-items: center;
+  display: flex;
+}
+
+.boxBtn a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 20px 0;
+  color: var(--backgroundColorPrincipal);
+  font-size: 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 500ms;
+  letter-spacing: 5px;
+  background: var(--colorPrincipal);
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+  width: 7vw;
+}
+
+.boxBtn a:hover {
+  box-shadow: 0 0 5px var(--colorPrincipal), 0 0 25px var(--colorPrincipal),
+    0 0 50px var(--colorPrincipal), 0 0 200px var(--colorPrincipal);
+  width: 10vw;
+}
+
 /* responsive */
 
 @media (max-width: 991px) {
@@ -121,7 +154,6 @@ header.sticky ul li a:hover {
     background-repeat: no-repeat;
     background-size: 30px;
     cursor: pointer;
-    /* filter: invert(1); */
   }
 
   .toggle.active {
@@ -130,5 +162,11 @@ header.sticky ul li a:hover {
     background-repeat: no-repeat;
     background-size: 25px;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 750px) {
+  .boxBtn a {
+    width: 15vh;
   }
 }

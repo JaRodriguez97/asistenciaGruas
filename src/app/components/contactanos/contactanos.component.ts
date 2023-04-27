@@ -23,6 +23,7 @@ export class ContactanosComponent implements OnInit {
 
   async sendContactMail({ value }: FormGroup) {
     let { nombreCompleto, email, mensaje } = value;
+    
     if (!nombreCompleto && !email && !mensaje) {
       Swal.fire({
         icon: "warning",
