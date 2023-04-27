@@ -166,7 +166,15 @@ header.sticky ul li a:hover {
 }
 
 @media (max-width: 750px) {
+  .boxBtn {
+    top: 10vh;
+  }
+
   .boxBtn a {
     width: 15vh;
+  }
+
+  .boxBtn a:hover {
+    width: 18vh;
   }
 }
