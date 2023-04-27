@@ -21,15 +21,16 @@ export class ContactanosComponent implements OnInit {
     this.contactForm = this.initForm();
   }
 
-  async sendContactMail(contactForm: FormGroup) {
-    if (contactForm.invalid) {
+  async sendContactMail({ value }: FormGroup) {
+    let { nombreCompleto, email, mensaje } = value;
+    if (!nombreCompleto && !email && !mensaje) {
       Swal.fire({
         icon: "warning",
         html: "<span>Por favor diligencie los campos obligatorios para poder enviar el mensaje</span>",
         scrollbarPadding: false,
       });
     } else {
-      this.contactService.sendMesage(contactForm.value).subscribe(
+      this.contactService.sendMesage(value).subscribe(
         (res) => {
           console.log(res);
           Swal.fire({
