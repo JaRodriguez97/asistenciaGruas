@@ -104,6 +104,13 @@ header.sticky ul li a:hover {
   width: 10vw;
 }
 
+.boxBtn .btnWhatsApp {
+  background-image: url("../assets/icons/whatsapp.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50px;
+}
+
 /* responsive */
 
 @media (max-width: 991px) {
