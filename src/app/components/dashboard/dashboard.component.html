@@ -1,0 +1,75 @@
+<section>
+  <mat-card *ngIf="user">
+    <mat-card-header>
+      <mat-card-title>Datos Personales</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>Nombres: {{ user.nombres }}</mat-list-item>
+        <mat-list-item>telefono: {{ user.numeroTelefono }}</mat-list-item>
+        <mat-list-item>Correo Electrónico: {{ user.email }}</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Pedidos Realizados</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-card-title *ngIf="!orders || !orders.length">
+        No has realizado pedidos aún
+      </mat-card-title>
+      <mat-card-actions
+        *ngFor="let item of orders"
+        [ngClass]="statusOrderClass(item.estado!)"
+        (click)="openOrder(item._id!)"
+      >
+        <label>
+          Estado:
+          <br />
+          <strong> {{ item.estado }}</strong>
+        </label>
+        <label>
+          Fecha Orden:
+          <br />
+          <!-- <strong> {{ item.fechaOrden | timeago }}</strong> -->
+          <strong> {{ item.fechaOrden }}</strong>
+        </label>
+        <label>
+          Total:
+          <br />
+          <strong> {{ item.total | currency : "$" : "symbol" : "5.0" }}</strong>
+        </label></mat-card-actions
+      >
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card
+    [routerLink]="'/admin-cng-dashboard'"
+    *ngIf="authUserService.isAdmin"
+    (click)="publicService.show()"
+  >
+    <mat-card-header>
+      <mat-card-title>Dashboard Administrativa</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card
+    [routerLink]="'/product-list'"
+    (click)="publicService.show()"
+    style="max-height: 10vh; cursor: pointer"
+  >
+    <mat-card-header>
+      <mat-card-title>Listado Productos</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</section>
+
+<section [ngClass]="{ router: true, isHidde }">
+  <router-outlet></router-outlet>
+</section>
+
+<mat-icon (click)="getDashboard()" [ngClass]="{ isHidde }">close</mat-icon>

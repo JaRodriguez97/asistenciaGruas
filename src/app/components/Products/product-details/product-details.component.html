@@ -1,0 +1,53 @@
+<section>
+  <mat-icon [routerLink]="'/product-list'" (click)="publicService.show()">
+    close
+  </mat-icon>
+
+  <mat-card *ngIf="producto">
+    <mat-card-content>
+      <mat-card-title>{{ producto.nombre }}</mat-card-title>
+
+      <p>Descripción : {{ producto.descripcion }}</p>
+      <p>Tallas Existentes : {{ producto.talla.join(" - ") }}</p>
+      <p>Colores : {{ producto.color }}</p>
+      <p>
+        {{
+          producto.cantidadDisponible
+            ? producto.cantidadDisponible + " Unidades disponibles"
+            : "Por Encargo con 2 dias de anticipación"
+        }}
+      </p>
+      <p>Categorias : {{ categorias }}</p>
+
+      <mat-card-actions>
+        <button
+          *ngIf="!existsProductCart(producto._id)"
+          (click)="addToCar(producto._id)"
+        >
+          Agregar <mat-icon>shopping_cart</mat-icon>
+        </button>
+
+        <mat-list *ngIf="existsProductCart(producto._id)">
+          <mat-list-item (click)="addToCar(producto._id)">
+            <mat-icon>add</mat-icon>
+            <span>Aumentar cantidad</span>
+          </mat-list-item>
+
+          <mat-list-item>
+            {{ cantidadProductCart(producto._id) }}
+          </mat-list-item>
+
+          <mat-list-item (click)="removeFromCart(producto._id)">
+            <mat-icon>remove</mat-icon>
+            <span>Reducir cantidad</span>
+          </mat-list-item>
+        </mat-list>
+
+        <span>{{ producto.precio | currency : "$" : "symbol" : "4.0-0" }}</span>
+      </mat-card-actions>
+    </mat-card-content>
+    <div class="banner__content--imgBx">
+      <img mat-card-image [src]="producto.imagen" [alt]="producto.nombre" />
+    </div>
+  </mat-card>
+</section>

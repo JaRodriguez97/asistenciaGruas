@@ -1,0 +1,79 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Enviar Pedido</mat-card-title>
+    <mat-card-subtitle>Datos de quien recibe el pedido</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form (ngSubmit)="sendOrder()" [formGroup]="orderForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombres:</mat-label>
+        <input
+          matInput
+          formControlName="nombres"
+          placeholder="Nombre quien recibe"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Telefono:</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="telefono"
+          placeholder="Celular quien recibe"
+          required
+        />
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <mat-label>Fecha de Orden</mat-label>
+        <input
+          matInput
+          [matDatepicker]="pickerOrden"
+          placeholder="Fecha de Orden"
+          [(ngModel)]="fechaEntrega"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="pickerOrden"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #pickerOrden></mat-datepicker>
+      </mat-form-field> 
+      
+      
+      <mat-form-field>
+        <mat-label>Total</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Total"
+          [(ngModel)]="total"
+          disabled
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Total de Productos</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Total de Productos"
+          [(ngModel)]="totalProductos"
+          disabled
+        />
+      </mat-form-field> -->
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="orderForm.invalid"
+      >
+        Finalizar Pedido
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
+

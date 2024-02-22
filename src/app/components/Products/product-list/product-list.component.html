@@ -1,0 +1,182 @@
+<!-- *** aside para filtro *** -->
+<mat-card [ngClass]="{ 'aside-filter': true, show }" *ngIf="!landingRoute">
+  <mat-card-header class="headerAside">
+    <mat-card-title [routerLink]="['/']" (click)="publicService.show()">
+      Inicio CNG
+    </mat-card-title>
+
+    <mat-icon [routerLink]="['/dashboard']" (click)="publicService.show()">
+      account_circle
+    </mat-icon>
+
+    <small>
+      Salir
+      <mat-icon (click)="closedSesion()"> keyboard_arrow_right </mat-icon>
+    </small>
+  </mat-card-header>
+</mat-card>
+
+<!-- *** icon para aside show *** -->
+<button
+  mat-fab
+  *ngIf="!landingRoute"
+  (click)="show = !show"
+  [ngClass]="{ show , arrowLeft:true}"
+>
+  <mat-icon>keyboard_arrow_left</mat-icon>
+  Filtros
+</button>
+
+<!-- *** card de contenido *** -->
+
+<mat-card [ngClass]="{ filter: !landingRoute, card: true, show }">
+  <!-- <div
+    *ngFor="let position of positions; let i = index"
+    [ngClass]="{
+      circles: true,
+      different: position.top % 3 == 0,
+      different2: position.top % 2 == 0
+    }"
+    [style]="'--i:' + i"
+    [style.top.px]="position.top"
+    [style.left.px]="position.left"
+  ></div> -->
+
+  <mat-card-header>
+    <mat-card-title>Nuestros Productos</mat-card-title>
+  </mat-card-header>
+
+  <form [ngClass]="{ filter: !landingRoute, cardForm: true, show }">
+    <mat-card-subtitle [ngClass]="{ filter: !landingRoute }">
+      Por categorías
+    </mat-card-subtitle>
+
+    <section>
+      <mat-checkbox
+        *ngFor="let item of categorias"
+        (change)="onCheckboxChange($event, item._id)"
+      >
+        {{ item.nombre }}
+      </mat-checkbox>
+    </section>
+  </form>
+
+  <mat-card-contain
+    *ngIf="productos.length"
+    [ngClass]="{ filter: !landingRoute }"
+    #contenido
+  >
+    <div class="card" *ngFor="let p of productos; let i = index">
+      <mat-card class="imgBx">
+        <div
+          mat-card-lg-image
+          class="img"
+          style="background-image: url('{{ p.imagen[0] }}');"
+        ></div>
+        <mat-list
+          [ngClass]="{
+            action: true,
+            active: existsProductCart(p._id)
+          }"
+        >
+          <!-- <mat-list-item>
+            <mat-icon>favorite</mat-icon>
+            <span>Agregar a Favoritos</span>
+            <!-- <span *ngIf="appComponent.validateFavorite(card._id)">
+                Quitar de Favoritos
+              </span>
+          </mat-list-item> -->
+          <mat-list-item
+            [routerLink]="['/product-details', p._id]"
+            (click)="publicService.show()"
+          >
+            <mat-icon>visibility</mat-icon>
+            <span>Ver Detalles</span>
+          </mat-list-item>
+
+          <mat-list-item
+            *ngIf="!existsProductCart(p._id)"
+            (click)="addToCar(p._id)"
+          >
+            <mat-icon>shopping_cart</mat-icon>
+            <span>Agregar al Carrito</span>
+          </mat-list-item>
+          <!-- !!! control cantidad !!! -->
+          <ng-container *ngIf="existsProductCart(p._id)">
+            <mat-list-item (click)="addToCar(p._id)">
+              <mat-icon>add</mat-icon>
+              <span>Aumentar cantidad</span>
+            </mat-list-item>
+
+            <mat-list-item>
+              {{ cantidadProductCart(p._id) }}
+            </mat-list-item>
+
+            <mat-list-item (click)="removeFromCart(p._id)">
+              <mat-icon>remove</mat-icon>
+              <span>Reducir cantidad</span>
+            </mat-list-item>
+          </ng-container>
+        </mat-list>
+      </mat-card>
+      <!-- !!! /////////////// !!! -->
+      <mat-card-footer class="content">
+        <mat-card-header class="productName">
+          <mat-card-title>{{ p.nombre }}</mat-card-title>
+          <mat-label>
+            Tallas: <span> {{ p.talla.join(", ") }}</span>
+          </mat-label>
+          <mat-card-title>
+            {{ p.precio | currency : "$" : "symbol" : "4.0-0" }}
+            <span> C/U</span>
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card-footer>
+    </div>
+  </mat-card-contain>
+
+  <mat-card-contain *ngIf="!productos.length">
+    <mat-card-title> No hay Productos para mostrar </mat-card-title>
+  </mat-card-contain>
+
+  <mat-card-action *ngIf="landingRoute">
+    <button
+      color="primary"
+      mat-raised-button
+      routerLink="/product-list"
+      (click)="publicService.show()"
+    >
+      Ver Más
+    </button>
+  </mat-card-action>
+</mat-card>
+
+<button
+  mat-fab
+  aria-label="Volver arriba"
+  (click)="scrolltop()"
+  class="arrowUp"
+>
+  <mat-icon>keyboard_arrow_up</mat-icon>
+</button>
+
+<button
+  mat-fab
+  aria-label="icon button with a add cart"
+  [matBadge]="carritoCompras ? carritoCompras.productos.length : null"
+  [matBadgeHidden]="hidden"
+  matBadgeSize="large"
+  (click)="toggleBadgeVisibility()"
+  class="cartShop"
+>
+  <mat-icon>add_shopping_cart</mat-icon>
+</button>
+
+<aside [ngClass]="{ active: hidden }">
+  <section>
+    <mat-icon (click)="toggleBadgeVisibility()">close</mat-icon>
+    <router-outlet></router-outlet>
+  </section>
+</aside>
+
+<app-contactanos *ngIf="!landingRoute && productos"></app-contactanos>

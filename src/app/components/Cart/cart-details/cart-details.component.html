@@ -1,0 +1,63 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Carrito de Compras</mat-card-title>
+    <mat-card-subtitle *ngIf="productos">
+      {{ productos.length }} productos agregados
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-contain *ngIf="!productos || !productos.length">
+    <mat-card-header>
+      <mat-card-title>Carrito Vacio</mat-card-title>
+    </mat-card-header>
+  </mat-card-contain>
+
+  <mat-card-contain *ngIf="productos && productos.length">
+    <mat-list>
+      <mat-list-item *ngFor="let p of productos; let i = index">
+        <img width="100" [src]="p.producto.imagen[0]" />
+
+        <mat-card-header class="productName">
+          <mat-card-title>{{ p.producto.nombre }}</mat-card-title>
+
+          <mat-card-subtitle>
+            <span>
+              {{
+                p.producto.precio * p.cantidad
+                  | currency : "$" : "symbol" : "4.0-0"
+              }}
+              /{{ p.cantidad }} Und.
+            </span>
+          </mat-card-subtitle>
+
+          <mat-form-field>
+            <mat-select
+              [placeholder]="
+                'Selecciona ' +
+                p.cantidad +
+                (p.cantidad == 1 ? ' Talla' : ' Tallas')
+              "
+              [(ngModel)]="p.tallasSeleccionadas"
+              multiple
+            >
+              <mat-option
+                *ngFor="let talla of p.producto.talla"
+                [value]="talla"
+                [disabled]="validarCantidad(p, talla)"
+              >
+                {{ talla }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-header>
+        <mat-icon (click)="restProduct(p.producto._id)">delete</mat-icon>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-card-action>
+      <button color="primary" mat-raised-button (click)="getToAddress()">
+        Continuar con el Pedido
+      </button>
+    </mat-card-action>
+  </mat-card-contain>
+</mat-card>

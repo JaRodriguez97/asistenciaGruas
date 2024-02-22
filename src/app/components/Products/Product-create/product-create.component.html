@@ -1,0 +1,209 @@
+<section>
+  <mat-card-content>
+    <mat-card-header>
+      <mat-card-title>Listado de productos existentes</mat-card-title>
+    </mat-card-header>
+
+    <!-- //////////////////////////////////// -->
+    <div class="mat-elevation-z8">
+      <table matSort mat-table [dataSource]="dataSource">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+        </ng-container>
+
+        <!-- Nombre Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+          <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+        </ng-container>
+
+        <!-- Precio Column -->
+        <ng-container matColumnDef="precio">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+          <td mat-cell *matCellDef="let element">{{ element.precio }}</td>
+        </ng-container>
+
+        <!-- Categoria Column -->
+        <ng-container matColumnDef="categoria">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Categoria</th>
+          <td mat-cell *matCellDef="let element">
+            <ng-container *ngFor="let c of element.categoria">
+              {{ c.nombre }}
+            </ng-container>
+          </td>
+        </ng-container>
+
+        <!-- Talla Column -->
+        <ng-container matColumnDef="talla">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Talla</th>
+          <td mat-cell *matCellDef="let element">{{ element.talla }}</td>
+        </ng-container>
+
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="editProduct(element._id)">
+                <mat-icon>edit</mat-icon>
+                <span>Editar</span>
+              </button>
+              <button mat-menu-item (click)="deleteProduct(element._id)">
+                <mat-icon>delete</mat-icon>
+                <span>Eliminar</span>
+              </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[5]"
+        showFirstLastButtons
+        aria-label="Select page of periodic elements"
+      >
+      </mat-paginator>
+    </div>
+
+    <!-- //////////////////////////////////// -->
+  </mat-card-content>
+
+  <aside>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Crear producto</mat-card-title>
+      </mat-card-header>
+
+      <form
+        [formGroup]="productoForm"
+        (ngSubmit)="onSubmit()"
+        enctype="multipart/form-data"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="Nombre" formControlName="nombre" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Descripción</mat-label>
+          <input
+            matInput
+            placeholder="Descripción"
+            formControlName="descripcion"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Precio</mat-label>
+          <input
+            matInput
+            type="number"
+            placeholder="Precio"
+            formControlName="precio"
+          />
+          <mat-error *ngIf="productoForm.get('precio')!.hasError('min')"
+            >Precio debe ser mayor o igual a 0</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Categoría</mat-label>
+          <mat-select formControlName="categoria" multiple>
+            <mat-option *ngFor="let c of categorias" [value]="c._id">
+              {{ c.nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Talla</mat-label>
+          <mat-select formControlName="talla" multiple>
+            <mat-option *ngFor="let talla of tallasDisponibles" [value]="talla">
+              {{ talla }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Color</mat-label>
+          <input matInput placeholder="Color" formControlName="color" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Cantidad Disponible</mat-label>
+          <input
+            matInput
+            type="number"
+            placeholder="Cantidad Disponible"
+            formControlName="cantidadDisponible"
+          />
+          <mat-error
+            *ngIf="productoForm.get('cantidadDisponible')!.hasError('min')"
+          >
+            Cantidad debe ser mayor o igual a 0
+          </mat-error>
+        </mat-form-field>
+
+        <mat-checkbox formControlName="disponible">Disponible</mat-checkbox>
+
+        <mat-card-actions>
+          <div class="inputFile" (click)="file.click()">
+            <mat-label>{{ labelImg }}</mat-label>
+            <input
+              type="file"
+              formControlName="imagen"
+              style="display: none"
+              (change)="onFileSelected($event)"
+              accept="image/*"
+              name="imagen"
+              #file
+            />
+            <button mat-raised type="button" color="primary" name="btnFile">
+              Buscar Imagen
+            </button>
+          </div>
+
+          <button
+            mat-raised-button
+            type="submit"
+            color="primary"
+            *ngIf="!selectedProduct"
+          >
+            Crear Producto
+          </button>
+
+          <button
+            mat-raised-button
+            type="button"
+            *ngIf="selectedProduct"
+            color="primary"
+            style="color: #fff !important"
+            (click)="finishEditProduct(productoForm, selectedProduct._id)"
+          >
+            Editar Categoria
+          </button>
+          <button
+            mat-raised-button
+            type="button"
+            *ngIf="selectedProduct"
+            (click)="limpiarFormulario()"
+          >
+            Cancelar
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </aside>
+</section>

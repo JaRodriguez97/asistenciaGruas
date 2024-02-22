@@ -1,0 +1,76 @@
+<section>
+  <mat-card>
+    <mat-card-content>
+      <div mat-card-avatar class="imgBx">
+        <img mat-card-image src="../../../assets/images/login.jpeg" />
+      </div>
+      <mat-card-footer class="formBx">
+        <form (ngSubmit)="onSubmit()">
+          <mat-card-header>
+            <mat-card-subtitle>
+              Que gusto tenerte de vuelta en
+            </mat-card-subtitle>
+            <mat-card-title>CNG</mat-card-title>
+          </mat-card-header>
+
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Teléfono</mat-label>
+            <input
+              type="number"
+              matInput
+              placeholder="Ingrese su Número Teléfono/WhatSapp"
+              [(ngModel)]="numeroTelefono"
+              name="numeroTelefono"
+              required
+            />
+            <mat-error *ngIf="!numeroTelefono">
+              El Número de telefono es obligatorio
+            </mat-error>
+            <!-- <input
+              type="email"
+              matInput
+              placeholder="Correo electrónico"
+              [(ngModel)]="email"
+              name="email"
+              required
+            />
+            <mat-error *ngIf="!email">
+              El correo electrónico es obligatorio
+            </mat-error> -->
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input
+              type="password"
+              matInput
+              placeholder="Ingrese Contraseña"
+              [(ngModel)]="password"
+              name="password"
+              required
+            />
+            <mat-error *ngIf="!password"
+              >La contraseña es obligatoria</mat-error
+            >
+          </mat-form-field>
+          <mat-slide-toggle [(ngModel)]="rememberMe" name="rememberMe">
+            Recordar ingreso por 30 días
+          </mat-slide-toggle>
+          <button mat-raised-button class="btn" type="submit">
+            Iniciar Sesión
+          </button>
+          <mat-card-actions>
+            <p>¿Todavía no has creado una cuenta?</p>
+            <button
+              mat-raised-button
+              routerLink="/signup"
+              type="button"
+              (click)="publicService.show()"
+            >
+              ¡Registrate!
+            </button>
+          </mat-card-actions>
+        </form>
+      </mat-card-footer>
+    </mat-card-content>
+  </mat-card>
+</section>

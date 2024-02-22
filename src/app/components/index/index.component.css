@@ -3,14 +3,11 @@ section {
 }
 
 .banner {
-  position: relative;
   left: 0;
   width: 100%;
   height: 100vh;
   padding: 100px;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
   background: var(--backgroundColorPrincipal);
 }
 
@@ -37,6 +34,18 @@ section {
 .banner .content {
   max-width: 700px;
   margin-left: 40px;
+  gap: 20px;
+  display: grid;
+}
+
+.banner .content .btnBox {
+  width: max-content;
+  display: flex;
+  gap: 15px;
+}
+
+.banner .content .btnBox .btn2 {
+  background: #fff;
 }
 
 .banner .content h2 {
@@ -44,6 +53,7 @@ section {
   letter-spacing: 1px;
   color: var(--letrasTitulosColor);
   line-height: 2.5em;
+  margin: 0;
 }
 
 .banner .content h2 span {

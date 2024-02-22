@@ -1,13 +1,11 @@
 .contact {
-  position: relative;
   min-height: 100vh;
   padding: 50px 100px;
-  display: flex;
-  justify-content: center;
   align-items: flex-start;
   flex-direction: column;
   background-image: url("../../../assets/images/bg.jpg");
   background-size: cover;
+  width: 100%;
 }
 
 .contact .content {

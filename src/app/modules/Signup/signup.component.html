@@ -1,0 +1,72 @@
+<section>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Crear Cuenta con nosotros</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Nombres</mat-label>
+          <input
+            matInput
+            formControlName="nombres"
+            placeholder="Ingrese sus nombres"
+          />
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            type="email"
+            placeholder="Ingrese su email"
+          />
+        </mat-form-field> -->
+
+        <mat-form-field appearance="fill">
+          <mat-label>Teléfono</mat-label>
+          <input
+            type="number"
+            matInput
+            formControlName="numeroTelefono"
+            placeholder="Ingrese su teléfono"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            formControlName="contraseña"
+            type="password"
+            placeholder="Ingrese su contraseña"
+          />
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">
+          Registrarse
+        </button>
+        <button
+          mat-stroked-button
+          type="button"
+          (click)="onReset()"
+        >
+          Borrar
+        </button>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <p>¿Ya tienes una cuenta? <a routerLink="/login">Iniciar sesión</a></p>
+    </mat-card-actions>
+  </mat-card>
+
+  <!-- <mat-card class="text-opacity">
+    <mat-card-header>
+      <mat-card-title>¡No te quedes sin ropa!</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Tu estilo, nuestra prioridad. ¡Regístrate ahora!</p>
+    </mat-card-content>
+  </mat-card> -->
+</section>

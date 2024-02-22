@@ -1,0 +1,131 @@
+<section>
+  <mat-card *ngIf="order">
+    <mat-card-header>
+      <mat-card-title>
+        Detalles del Pedido <span>#{{ order.REF?.toUpperCase() }}</span>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <article>
+        <!-- <mat-card-subtitle>Información de Quien Recibe Pedido</mat-card-subtitle> -->
+        <h3>Información de Quien Recibe Pedido</h3>
+        <address>
+          <label>
+            Nombres:
+            <span>{{ order.nombres }}</span>
+          </label>
+          <label>
+            Teléfono:
+            <span>{{ order.telefono }}</span>
+          </label>
+        </address>
+      </article>
+
+      <article>
+        <h3>Lugar y Datos de Entrega</h3>
+        <address>
+          <label>
+            Dirección de Envío:
+            <span>{{ direccionEnvio.direccion }}</span>
+          </label>
+          <label>
+            Barrio:
+            <span>{{ direccionEnvio.barrio }}</span>
+          </label>
+          <label>
+            Comuna:
+            <span>{{ direccionEnvio.comuna || "" }}</span>
+          </label>
+          <label>
+            Código Postal:
+            <span>{{ direccionEnvio.codigoPostal || "" }}</span>
+          </label>
+          <label>
+            Información Adicional:
+            <span>{{ direccionEnvio.informacionAdicional || "" }}</span>
+          </label>
+        </address>
+      </article>
+
+      <article>
+        <h3>Resumen del Pedido</h3>
+        <address>
+          <label>
+            Total de Productos:
+            <span>{{ order.totalProductos }} und(s)</span>
+          </label>
+          <label>
+            Total:
+            <span>{{
+              order.total | currency : "USD" : "symbol" : "5.0-0"
+            }}</span>
+          </label>
+          <label *ngIf="order && order.fechaProcesado">
+            Inicio Proceso:
+            <span>{{ order.fechaProcesado | timeago }}</span>
+          </label>
+          <label *ngIf="order && order.fechaEnvio">
+            Envio Pedido:
+            <span>{{ order.fechaEnvio | timeago }}</span>
+          </label>
+          <label *ngIf="order && order.fechaEntrega">
+            Entrega Pedido:
+            <span>{{ order.fechaEntrega | timeago }}</span>
+          </label>
+          <button *ngIf="order && order.fechaEntrega" mat-stroked-button>
+            ¿No Llegó Tú Pedido?
+          </button>
+        </address>
+      </article>
+    </mat-card-content>
+
+    <mat-card-footer *ngIf="authUserService.isAdmin">
+      <mat-card-header>
+        <mat-card-title>Gestionar pedido</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-action>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="order && order.estado && order.estado !== 'procesando'"
+          (click)="updateOrder('enviado')"
+        >
+          Enviar Pedido
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="order && order.estado && order.estado !== 'enviado'"
+          (click)="updateOrder('entregado')"
+        >
+          Pedido Entregado
+        </button>
+        <!--   <button mat-raised-button color="primary">Enviar Pedido</button>
+        <button mat-raised-button color="primary">Enviar Pedido</button> -->
+      </mat-card-action>
+    </mat-card-footer>
+  </mat-card>
+
+  <mat-card *ngIf="order">
+    <mat-card-header>
+      <mat-card-subtitle>Productos</mat-card-subtitle>
+    </mat-card-header>
+    <mat-list>
+      <mat-list-item *ngFor="let item of order.productos">
+        <ng-container *ngIf="item.producto">
+          <label>
+            {{ item.producto.nombre }}
+          </label>
+          <label>Tallas: {{ item.tallasSeleccionadas }} </label>
+          <img
+            *ngIf="item.producto.imagen"
+            src="{{ item.producto.imagen[0] }}"
+            width="100"
+            [alt]="item.producto.nombre"
+        /></ng-container>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</section>

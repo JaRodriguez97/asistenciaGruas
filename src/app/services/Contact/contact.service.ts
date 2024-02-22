@@ -7,8 +7,8 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class ContactService {
-  URL = environment.backend;
-  
+  URL = environment.urlBack + "contact/";
+
   constructor(private http: HttpClient) {}
 
   headers() {
@@ -17,9 +17,13 @@ export class ContactService {
     });
   }
 
-  sendMesage(form: any): Observable<Object> {
+  sendMesage(form: any) {
     let headers = this.headers();
 
-    return this.http.post(`${this.URL}sendEmail`, form, { headers });
+    return this.http.post<{ messageId: string; message: string }>(
+      this.URL,
+      form,
+      { headers }
+    );
   }
 }

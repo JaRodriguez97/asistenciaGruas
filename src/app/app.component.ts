@@ -1,37 +1,13 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  OnInit,
-  Renderer2,
-  ViewChild,
-} from "@angular/core";
-import { Router } from "@angular/router";
+import { Component } from "@angular/core";
+import { PublicService } from "./services/Public/public.service";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
 })
-export class AppComponent implements OnInit {
-  title = "asistenciaGruas";
-  @ViewChild("menuToggle") menuToggle!: ElementRef;
-  @ViewChild("menu") menu!: ElementRef;
-  @ViewChild("header") header!: ElementRef;
-
-  constructor(private render: Renderer2, private router: Router) {}
-
-  ngOnInit(): void {}
-
-  @HostListener("window:scroll")
-  scrolling(): void {
-    if (window.scrollY > 0) {
-      this.render.addClass(this.header.nativeElement, "sticky");
-    } else this.render.removeClass(this.header.nativeElement, "sticky");
-  }
-
-  toogleMenu() {
-    this.menuToggle?.nativeElement?.classList.toggle("active");
-    this.menu?.nativeElement?.classList.toggle("active");
-  }
+export class AppComponent {
+  // token!: string | null;
+  title = "CNG";
+  constructor(public deviceService: PublicService) {}
 }

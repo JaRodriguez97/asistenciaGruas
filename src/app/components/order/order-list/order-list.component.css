@@ -1,0 +1,36 @@
+mat-card-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 70vh;
+}
+
+mat-card-title {
+  color: black;
+}
+
+table {
+  width: 100%;
+}
+
+button.pendiente {
+  border: 1px solid #f00;
+  background: #f003;
+}
+
+button.procesando {
+  border: 1px solid #f70;
+  background: #f703;
+}
+
+button.enviado {
+  border: 1px solid #ff0;
+  background: #ff03;
+}
+
+button.entregado {
+  border: 1px solid #2f2;
+  background: #2f23;
+}

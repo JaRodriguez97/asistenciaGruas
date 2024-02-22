@@ -1,0 +1,36 @@
+<header #header>
+  <a href="#" class="logo">Portafolio</a>
+  <div #menuToggle class="toggle" (click)="toogleMenu()"></div>
+  <ul #menu class="menu">
+    <li><a href="landing#inicio" (click)="toogleMenu()">Inicio</a></li>
+    <li><a href="landing#nosotros" (click)="toogleMenu()">Nosotros</a></li>
+    <li><a href="landing#servicios" (click)="toogleMenu()">Servicios</a></li>
+    <li><a href="landing#trabajos" (click)="toogleMenu()">Trabajos</a></li>
+    <li><a href="landing#testimonios" (click)="toogleMenu()">Reseñas</a></li>
+    <li><a href="landing#contacto" (click)="toogleMenu()">Contáctanos</a></li>
+  </ul>
+</header>
+
+<!-- BTN Asegurados BTN -->
+<!-- <div class="boxBtn" title="Asegura tu Vehículo">
+  <a href="#"> -% </a>
+</div> -->
+<!-- BTN Asegurados BTN -->
+
+<!-- BTN WhatsApp BTN -->
+<div class="boxBtn" title="Asegura tu Vehículo">
+  <a
+    href="https://wa.me/message/H22QG4UJBS6AJ1"
+    target="_blank"
+    class="btnWhatsApp"
+  >
+  </a>
+</div>
+<!-- BTN WhatsApp BTN -->
+
+<app-index id="inicio"></app-index>
+<app-nosotros id="nosotros"></app-nosotros>
+<app-servicios id="servicios"></app-servicios>
+<app-trabajos id="trabajos"></app-trabajos>
+<app-testimonios id="testimonios"></app-testimonios>
+<app-contactanos id="contacto"></app-contactanos>

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <base href="/" />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="var(--colorPrincipal)" />
@@ -9,13 +10,26 @@
       name="description"
       content="Asistencia Nacional de Grúas, con disposición de grúas"
     />
-    <title>Central Nacional de Grúas.</title>
+    <meta name="robots" content="noindex" />
 
+    <!-- <title>Central Nacional de Grúas.</title> -->
+    <title>CNGrúas</title>
+
+    <link
+      rel="apple-touch-icon"
+      href="./assets/icons/logoGruasTransparente.png"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/icons/logoGruasTransparente.png"
+    />
     <link
       rel="icon"
       type="image/x-icon"
       href="./assets/images/logoGruasTransparente.png"
     />
+
     <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
     <link
       rel="stylesheet"
@@ -23,11 +37,35 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preload" />
   </head>
 
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=AW-11378721222"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "AW-11378721222");
+  </script>
+
   <body
-    class="hold-transition sidebar-mini layout-fixed page-top"
-    style="overflow-x: hidden"
+    class="hold-transition sidebar-mini layout-fixed page-top mat-typography"
   >
     <app-root></app-root>
   </body>

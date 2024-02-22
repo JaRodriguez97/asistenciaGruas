@@ -1,0 +1,11 @@
+mat-card {
+  border-radius: 20px;
+  min-width: 400px;
+  width: 100%;
+}
+
+form {
+  overflow-y: auto;
+  height: 80dvh;
+  padding: 20px;
+}

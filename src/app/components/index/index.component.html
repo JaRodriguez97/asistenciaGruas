@@ -7,9 +7,7 @@
     />
   </div>
   <div class="content">
-    <h2>
-      ¡HOLA! Somos <br /><span>Central Nacional de Grúas.</span>
-    </h2>
+    <h2>¡HOLA! Somos <br /><span>Central Nacional de Grúas.</span></h2>
     <p>
       <!-- Una empresa dedicada a brindar soluciones logísticas de transporte con
       vehículos livianos, medianos, pesados y todo tipo de maquinaria. Siendo
@@ -22,9 +20,18 @@
       reconocidos en el mercado por la calidad, celeridad y atención para con
       nuestros clientes al momento de asistir los servicios solicitados.
     </p>
-    <a href="https://wa.me/message/H22QG4UJBS6AJ1" target="_blank" class="btn"
-      >Reservar Servicio</a
-    >
+    <div class="btnBox">
+      <a
+        href="https://wa.me/message/H22QG4UJBS6AJ1"
+        target="_blank"
+        class="btn"
+      >
+        Reservar Servicio
+      </a>
+      <a routerLink="/product-list" class="btn2 btn" (click)="publicService.show()">
+        Regalo para tu Vehículo
+      </a>
+    </div>
   </div>
 
   <footer>
@@ -35,7 +42,7 @@
         ></a>
       </li>
       <li>
-        <a href="#contacto"> <fa-icon [icon]="faGoogle"></fa-icon></a>
+        <a href="landing#contacto"> <fa-icon [icon]="faGoogle"></fa-icon></a>
       </li>
       <li>
         <a target="_blank" href="https://www.instagram.com/">

@@ -1,0 +1,148 @@
+section {
+  padding: 5vh;
+  overflow: hidden;
+}
+
+section mat-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 90vh;
+  background: #fff;
+  box-shadow: 0 15px 25px rgba(200, 200, 200, 0.3);
+  overflow: hidden;
+}
+
+section mat-card mat-card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+section mat-card mat-card-content .imgBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: var(--backgroundColorPrincipal);
+}
+
+section mat-card mat-card-content .imgBx img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  animation: moverIzquierda 1s;
+}
+
+@keyframes moverIzquierda {
+  0% {
+    left: -100vw;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+section mat-card mat-card-content mat-card-footer {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: var(--backgroundColorPrincipal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+section mat-card mat-card-content mat-card-footer form {
+  height: 100%;
+  justify-content: space-between;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+section mat-card mat-card-content mat-card-footer form mat-card-header {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  width: 100%;
+  color: var(--letrasClaras);
+}
+
+section mat-card mat-card-content mat-card-footer form input {
+  color: var(--letrasClaras);
+}
+
+/* ////////// */
+
+.mat-form-field {
+  text-align: center;
+}
+
+.mat-slide-toggle {
+  direction: rtl;
+}
+
+mat-card-actions {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+mat-card-actions p {
+  margin: 0;
+  text-wrap: pretty;
+  text-align: center;
+}
+
+mat-card-actions p,
+mat-card-actions button {
+  flex: 1;
+  width: 100%;
+}
+
+/* !!! Responsive !!! */
+/* Media Query para pantallas medianas */
+@media (max-width: 600px) {
+  section {
+    min-height: 100dvh;
+  }
+
+  section mat-card {
+    max-height: 80vh;
+    min-height: 70vh;
+  }
+
+  section mat-card mat-card-content .imgBx {
+    width: 30%;
+  }
+
+  section mat-card mat-card-content .imgBx img {
+    border-radius: 0;
+  }
+
+  section mat-card mat-card-content mat-card-footer {
+    width: 70%;
+  }
+}
+
+@media (max-width: 450px) {
+  section mat-card mat-card-content .imgBx {
+    width: 0%;
+  }
+
+  section mat-card mat-card-content mat-card-footer {
+    width: 100%;
+    padding: 40px;
+  }
+}

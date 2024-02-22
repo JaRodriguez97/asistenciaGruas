@@ -1,0 +1,46 @@
+<mat-drawer-container autosize>
+  <mat-drawer #drawer mode="side" opened="true" class="side">
+    <mat-card-header>
+      <mat-card-subtitle routerLink="/" (click)="publicService.show()">
+        Landing CNG
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-nav-list>
+      <mat-list-item
+        *ngFor="let s of sections; let i = index"
+        mat-button
+        (click)="onItemClick(i, s)"
+        [disabled]="selectedItem == i"
+      >
+        {{ s }}
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <mat-toolbar>
+      <mat-icon (click)="clickToggle()">menu</mat-icon>
+
+      <span class="example-spacer"></span>
+
+      <mat-card-title>{{ title }}</mat-card-title>
+
+      <span class="example-spacer"></span>
+
+      <mat-icon class="closedSesion" *ngIf="token" (click)="closedSesion()">
+        arrow_back
+      </mat-icon>
+    </mat-toolbar>
+
+    <mat-divider class="dark"></mat-divider>
+
+    <section>
+      <router-outlet></router-outlet>
+    </section>
+
+    <mat-divider class="dark"></mat-divider>
+  </mat-drawer-content>
+</mat-drawer-container>

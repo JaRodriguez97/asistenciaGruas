@@ -1,0 +1,72 @@
+<mat-card>
+  <!-- html whit structure to create addres -->
+  <mat-card-header>
+    <mat-card-title>Crear Dirección</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="addressForm" (ngSubmit)="onSubmitForm(addressForm)">
+      <mat-form-field appearance="outline">
+        <mat-label>Dirección</mat-label>
+        <input
+          matInput
+          formControlName="direccion"
+          placeholder="Calle/Carrera/Avenida/Transversal"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Barrio</mat-label>
+        <input
+          matInput
+          placeholder="EJ: San Fernando"
+          formControlName="barrio"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Comuna</mat-label>
+        <input
+          matInput
+          type="number"
+          min="1"
+          max="22"
+          placeholder="19"
+          formControlName="comuna"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Código Postal</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="760001"
+          formControlName="codigoPostal"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Información Adicional</mat-label>
+        <textarea
+          matInput
+          cols="30"
+          rows="3"
+          placeholder="EJ: Al lado del local de rejas blancas"
+          formControlName="informacionAdicional"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-card-action>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!addressForm.valid"
+        >
+          Crear Dirección
+        </button>
+      </mat-card-action>
+    </form>
+  </mat-card-content>
+</mat-card>

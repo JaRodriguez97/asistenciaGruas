@@ -1,0 +1,47 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Direcciones guardadas</mat-card-title>
+    <mat-card-subtitle
+      >por favor selecciona donde quieres recbir tu pedido</mat-card-subtitle
+    >
+  </mat-card-header>
+
+  <mat-card-container>
+    <mat-list>
+      <mat-list-item *ngFor="let d of direcciones">
+        <mat-radio-button
+          class="example-margin"
+          [value]="d._id"
+          aria-label="Example radio button with label before"
+          (change)="onSelectDireccion(d._id)"
+          [checked]="
+            adressService.direccionSeleccionada &&
+            d._id === adressService.direccionSeleccionada!._id
+          "
+        >
+          <p *ngIf="d.direccion" mat-line>Direccion: {{ d.direccion }}</p>
+          <p *ngIf="d.barrio" mat-line>Barrio: {{ d.barrio }}</p>
+          <p *ngIf="d.comuna" mat-line>Comuna: {{ d.comuna }}</p>
+          <p *ngIf="d.codigoPostal" mat-line>
+            Código Postal: {{ d.codigoPostal }}
+          </p>
+        </mat-radio-button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-container>
+
+  <mat-card-action>
+    <button mat-raised-button color="accent" (click)="createAddress()">
+      Crear Dirección
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="continueToOrder()"
+      [disabled]="!adressService.direccionSeleccionada"
+    >
+      Continuar
+    </button>
+  </mat-card-action>
+</mat-card>

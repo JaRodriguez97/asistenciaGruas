@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { PublicService } from "@app/services/Public/public.service";
 import {
   faFacebookF,
   faInstagram,
@@ -15,6 +16,6 @@ export class IndexComponent implements OnInit {
   faInstagram = faInstagram;
   faGoogle = faGoogle;
 
-  constructor() {}
+  constructor(public publicService: PublicService) {}
   ngOnInit() {}
 }
